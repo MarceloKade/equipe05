@@ -1,7 +1,7 @@
 from rest_framework import viewsets
-from .models import register
-from .serializers import registerSerializer
+from .models import Register
+from .serializers import RegisterSerializer
 
 class registerViewSet(viewsets.ModelViewSet):
-    queryset = register.objects.all()
-    serializer_class = registerSerializer
+    queryset = Register.objects.all()
+    serializer_class = RegisterSerializer
