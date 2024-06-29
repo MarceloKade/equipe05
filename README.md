@@ -108,15 +108,3 @@ Faça o push para a branch (git push origin feature/nova-feature).
 Crie um novo Pull Request.
 Licença
 Este projeto está licenciado sob os termos da licença MIT. Veja o arquivo LICENSE para mais detalhes.
-
-
-### Explicação
-
-- **Instalação e Configuração:** Instruções sobre como configurar e rodar o projeto localmente.
-- **Endpoints da API:** Descrição do endpoint para registrar um usuário, incluindo exemplos de requisição e resposta.
-- **Validação de Campos:** Informações sobre as validações implementadas para os campos do formulário.
-- **Segurança da API:** Recomendações sobre como adicionar medidas de segurança à API, incluindo proteção CSRF e autenticação.
-- **Contribuição e Licença:** Diretrizes sobre como contribuir para o projeto e informações sobre a licença do projeto.
-
-Essa documentação deve fornecer uma base sólida para qualquer pessoa que queira usar ou contribuir com seu projeto.
-
