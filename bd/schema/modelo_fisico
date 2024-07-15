@@ -1,0 +1,84 @@
+/* L�gico_1: */
+
+CREATE TABLE Usuario (
+    Nome VARCHAR,
+    SobreNome VARCHAR,
+    Email VARCHAR,
+    fk_AreaDeInteresse_AreaDeInteresse_PK VARCHAR,
+    Disponibilidade DATE,
+    fk_Turno_Turno_PK VARCHAR,
+    Whatsapp INT,
+    fk_linguegem_linguegem_PK INT,
+    ID_usuario INT PRIMARY KEY
+);
+
+CREATE TABLE Newsletter (
+    Email VARCHAR,
+    ID_newsletter INT PRIMARY KEY
+);
+
+CREATE TABLE EntreEmContato (
+    Nome VARCHAR,
+    Email VARCHAR,
+    Mensagem VARCHAR,
+    ID_entre_em_contato INT PRIMARY KEY
+);
+
+CREATE TABLE AreaDeInteresse (
+    AreaDeInteresse_PK VARCHAR NOT NULL PRIMARY KEY,
+    Backend VARCHAR,
+    Frontend VARCHAR,
+    BancoDeDados VARCHAR,
+    UiUxDesinger VARCHAR
+);
+
+CREATE TABLE Turno (
+    Turno_PK VARCHAR NOT NULL PRIMARY KEY,
+    Matutino VARCHAR,
+    Diurno VARCHAR,
+    Noturno VARCHAR
+);
+
+CREATE TABLE linguegem (
+    linguegem_PK INT NOT NULL PRIMARY KEY,
+    Python VARCHAR,
+    JavaScript VARCHAR,
+    Java VARCHAR,
+    Csharp VARCHAR
+);
+
+CREATE TABLE Cadastrar_Usuario_Newsletter_EntreEmContato (
+    fk_Usuario_ID_usuario INT,
+    fk_Newsletter_ID_newsletter INT,
+    fk_EntreEmContato_ID_entre_em_contato INT
+);
+ 
+ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_2
+    FOREIGN KEY (fk_AreaDeInteresse_AreaDeInteresse_PK)
+    REFERENCES AreaDeInteresse (AreaDeInteresse_PK)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_3
+    FOREIGN KEY (fk_Turno_Turno_PK)
+    REFERENCES Turno (Turno_PK)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_4
+    FOREIGN KEY (fk_linguegem_linguegem_PK)
+    REFERENCES linguegem (linguegem_PK)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Cadastrar_Usuario_Newsletter_EntreEmContato ADD CONSTRAINT FK_Cadastrar_Usuario_Newsletter_EntreEmContato_1
+    FOREIGN KEY (fk_Usuario_ID_usuario)
+    REFERENCES Usuario (ID_usuario)
+    ON DELETE NO ACTION;
+ 
+ALTER TABLE Cadastrar_Usuario_Newsletter_EntreEmContato ADD CONSTRAINT FK_Cadastrar_Usuario_Newsletter_EntreEmContato_2
+    FOREIGN KEY (fk_Newsletter_ID_newsletter)
+    REFERENCES Newsletter (ID_newsletter)
+    ON DELETE NO ACTION;
+ 
+ALTER TABLE Cadastrar_Usuario_Newsletter_EntreEmContato ADD CONSTRAINT FK_Cadastrar_Usuario_Newsletter_EntreEmContato_3
+    FOREIGN KEY (fk_EntreEmContato_ID_entre_em_contato)
+    REFERENCES EntreEmContato (ID_entre_em_contato)
+    ON DELETE NO ACTION;
