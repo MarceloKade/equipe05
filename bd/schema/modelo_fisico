@@ -1,50 +1,50 @@
-/* L�gico_1: */
+/* Lógico_1: */
 
 CREATE TABLE Usuario (
-    Nome VARCHAR,
-    SobreNome VARCHAR,
-    Email VARCHAR,
+    Nome VARCHAR(50),
+    SobreNome VARCHAR(100),
+    Email VARCHAR(100),
     fk_AreaDeInteresse_AreaDeInteresse_PK VARCHAR,
-    Disponibilidade DATE,
-    fk_Turno_Turno_PK VARCHAR,
-    Whatsapp INT,
+    Disponibilidade DATETIME,
+    fk_Turno_Turno_PK VARCHAR(50),
+    Whatsapp VARCHAR(25),
     fk_linguegem_linguegem_PK INT,
     ID_usuario INT PRIMARY KEY
 );
 
 CREATE TABLE Newsletter (
-    Email VARCHAR,
+    Email VARCHAR(100),
     ID_newsletter INT PRIMARY KEY
 );
 
 CREATE TABLE EntreEmContato (
-    Nome VARCHAR,
-    Email VARCHAR,
-    Mensagem VARCHAR,
+    Nome VARCHAR(50),
+    Email VARCHAR(100),
+    Mensagem VARCHAR(250),
     ID_entre_em_contato INT PRIMARY KEY
 );
 
 CREATE TABLE AreaDeInteresse (
     AreaDeInteresse_PK VARCHAR NOT NULL PRIMARY KEY,
-    Backend VARCHAR,
-    Frontend VARCHAR,
-    BancoDeDados VARCHAR,
-    UiUxDesinger VARCHAR
+    Backend VARCHAR(50),
+    Frontend VARCHAR(50),
+    BancoDeDados VARCHAR(50),
+    UiUxDesinger VARCHAR(50)
 );
 
 CREATE TABLE Turno (
     Turno_PK VARCHAR NOT NULL PRIMARY KEY,
-    Matutino VARCHAR,
-    Diurno VARCHAR,
-    Noturno VARCHAR
+    Matutino ENUM,
+    Diurno ENUM,
+    Noturno ENUM
 );
 
 CREATE TABLE linguegem (
     linguegem_PK INT NOT NULL PRIMARY KEY,
-    Python VARCHAR,
-    JavaScript VARCHAR,
-    Java VARCHAR,
-    Csharp VARCHAR
+    Python ENUM,
+    JavaScript ENUM,
+    Java ENUM,
+    Csharp ENUM
 );
 
 CREATE TABLE Cadastrar_Usuario_Newsletter_EntreEmContato (
