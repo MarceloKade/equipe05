@@ -1,25 +1,26 @@
-/* L�gico_1: */
+/* Lógico_1: */
 
 CREATE TABLE Usuario (
-    Nome VARCHAR,
-    SobreNome VARCHAR,
-    Email VARCHAR,
-    fk_AreaDeInteresse_AreaDeInteresse_PK VARCHAR,
+    Nome VARCHAR(50),
+    SobreNome VARCHAR(100),
+    Email VARCHAR(100),
+    fk_AreaDeInteresse_AreaDeInteresse_PK INT,
     Disponibilidade DATETIME,
-    fk_Turno_Turno_PK ENUM,
+    fk_Turno_Turno_PK INT,
+    Whatsapp VARCHAR(25),
     fk_linguegem_linguegem_PK INT,
     ID_usuario INT PRIMARY KEY
 );
 
 CREATE TABLE Newsletter (
-    Email VARCHAR,
+    Email VARCHAR(100),
     ID_newsletter INT PRIMARY KEY
 );
 
 CREATE TABLE EntreEmContato (
-    Nome VARCHAR,
-    Email VARCHAR,
-    Mensagem VARCHAR,
+    Nome VARCHAR(50),
+    Email VARCHAR(100),
+    Mensagem VARCHAR(250),
     ID_entre_em_contato INT PRIMARY KEY
 );
 
