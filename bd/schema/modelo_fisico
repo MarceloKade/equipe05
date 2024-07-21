@@ -4,9 +4,11 @@ CREATE TABLE Usuario (
     Nome VARCHAR(50),
     SobreNome VARCHAR(100),
     Email VARCHAR(100),
+
     fk_AreaDeInteresse_AreaDeInteresse_PK INT,
     Disponibilidade DATETIME,
     fk_Turno_Turno_PK INT,
+    
     Whatsapp VARCHAR(25),
     fk_linguegem_linguegem_PK INT,
     ID_usuario INT PRIMARY KEY
@@ -37,6 +39,7 @@ CREATE TABLE Turno (
     Matutino BOOLEAN,
     Diurno BOOLEAN,
     Noturno BOOLEAN,
+
 );
 
 CREATE TABLE linguegem (
