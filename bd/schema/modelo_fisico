@@ -5,9 +5,8 @@ CREATE TABLE Usuario (
     SobreNome VARCHAR,
     Email VARCHAR,
     fk_AreaDeInteresse_AreaDeInteresse_PK VARCHAR,
-    Disponibilidade DATE,
-    fk_Turno_Turno_PK VARCHAR,
-    Whatsapp INT,
+    Disponibilidade DATETIME,
+    fk_Turno_Turno_PK ENUM,
     fk_linguegem_linguegem_PK INT,
     ID_usuario INT PRIMARY KEY
 );
@@ -25,26 +24,26 @@ CREATE TABLE EntreEmContato (
 );
 
 CREATE TABLE AreaDeInteresse (
-    AreaDeInteresse_PK VARCHAR NOT NULL PRIMARY KEY,
-    Backend VARCHAR,
-    Frontend VARCHAR,
-    BancoDeDados VARCHAR,
-    UiUxDesinger VARCHAR
+    AreaDeInteresse_PK INT NOT NULL PRIMARY KEY,
+    Backend BOOLEAN,
+    Frontend BOOLEAN,
+    BancoDeDados BOOLEAN,
+    UiUxDesinger BOOLEAN,
 );
 
 CREATE TABLE Turno (
-    Turno_PK VARCHAR NOT NULL PRIMARY KEY,
-    Matutino VARCHAR,
-    Diurno VARCHAR,
-    Noturno VARCHAR
+    Turno_PK INT NOT NULL PRIMARY KEY,
+    Matutino BOOLEAN,
+    Diurno BOOLEAN,
+    Noturno BOOLEAN,
 );
 
 CREATE TABLE linguegem (
     linguegem_PK INT NOT NULL PRIMARY KEY,
-    Python VARCHAR,
-    JavaScript VARCHAR,
-    Java VARCHAR,
-    Csharp VARCHAR
+    Python BOOLEAN,
+    JavaScript BOOLEAN,
+    Java BOOLEAN,
+    Csharp BOOLEAN,
 );
 
 CREATE TABLE Cadastrar_Usuario_Newsletter_EntreEmContato (
