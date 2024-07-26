@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.containerTextEquipe{
+  color: #ffffff;
+  max-width: 768px;
+  margin: auto;
+}
+
+.nossaEquipe {
+  margin-top: 112px;
+  margin-bottom: 112px;
+}
+.card {
+    background-color: #111114;
+    border: 1px solid #27272A;
+    min-width: 270px;
+    color: white;
+    font-family: 'Manrope', sans-serif;
+  }
