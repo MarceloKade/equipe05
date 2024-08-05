@@ -1,0 +1,42 @@
+import { ReactNode } from "react"
+
+type Props = {
+  children: ReactNode
+}
+
+function ContainerBeneficios({ children }: Props) {
+  return(
+    <section className="beneficios flex flex-col items-center justify-center xl:py-[112px] xl:px-[192px] gap-8 md:gap-20">
+      {children}
+    </section>
+  )
+}
+function ContainerText({ children }: Props) {
+  return(
+    <div className="flex flex-col text-center m-auto w-[398px] md:w-[600px] lg:w-[768px] gap-6">
+      {children}
+    </div>
+  )
+}
+function ContainerGrid({ children }: Props) {
+  return(
+    <div className="flex flex-col lg:flex-row gap-8">
+      {children}
+    </div>
+  )
+}
+function ContainerGridColumn({ children }: Props) {
+  return(
+    <div className="flex flex-col gap-8">
+      {children}
+    </div>
+  )
+}
+
+
+export {
+  ContainerBeneficios,
+  ContainerText,
+  ContainerGrid,
+  ContainerGridColumn
+}
