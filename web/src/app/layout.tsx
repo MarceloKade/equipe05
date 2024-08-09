@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${manrope.className} ${roboto.className} font-sans bg`}>
+      <body className={`${manrope.className} scrollbar-hide bg-backgroundDef text-white`}>
         {children}
       </body>
     </html>
