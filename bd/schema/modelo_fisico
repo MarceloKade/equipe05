@@ -8,7 +8,7 @@ CREATE TABLE Usuario (
     Disponibilidade DATETIME,
     fk_Turno_Turno_PK INT,
     Whatsapp VARCHAR(25),
-    fk_linguegem_linguegem_PK INT,
+    fk_linguagem_linguagem_PK INT,
     ID_usuario INT PRIMARY KEY
 );
 
@@ -39,8 +39,8 @@ CREATE TABLE Turno (
     Noturno BOOLEAN,
 );
 
-CREATE TABLE linguegem (
-    linguegem_PK INT NOT NULL PRIMARY KEY,
+CREATE TABLE linguagem (
+    linguagem_PK INT NOT NULL PRIMARY KEY,
     Python BOOLEAN,
     JavaScript BOOLEAN,
     Java BOOLEAN,
@@ -64,8 +64,8 @@ ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_3
     ON DELETE SET NULL;
  
 ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_4
-    FOREIGN KEY (fk_linguegem_linguegem_PK)
-    REFERENCES linguegem (linguegem_PK)
+    FOREIGN KEY (fk_linguagem_linguagem_PK)
+    REFERENCES linguagem (linguagem_PK)
     ON DELETE SET NULL;
  
 ALTER TABLE Cadastrar_Usuario_Newsletter_EntreEmContato ADD CONSTRAINT FK_Cadastrar_Usuario_Newsletter_EntreEmContato_1
