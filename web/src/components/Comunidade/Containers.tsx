@@ -25,7 +25,7 @@ function Container({ children }: Props) {
 
 function DiscordContainer({ children }: Props) {
     return (
-        <div className="w-[101.6rem] h-[519px] px-[1.0rem] py-[3.5rem]">
+        <div className="w-[101.6rem] h-[51.9rem] px-[1.0rem] py-[3.5rem]">
             {children}
         </div>
     )

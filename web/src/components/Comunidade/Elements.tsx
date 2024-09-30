@@ -20,13 +20,13 @@ function bgImage() {
 
 function Circle1() {
     return (
-        <div className="bg-[#F8A9A9] border-[1px] border-[#FDF3F3] filter blur-[100px] xl:blur-[120px] w-[6.0rem] h-[6.0rem] xl:w-[12.0rem] xl:h-[12.0rem] rounded-full"></div>
+        <div className="bg-[#F8A9A9] border border-[#FDF3F3] filter blur-[10.0rem] xl:blur-[12.0rem] w-[6.0rem] h-[6.0rem] xl:w-[12.0rem] xl:h-[12.0rem] rounded-full"></div>
     )
 }
 
 function Circle2() {
     return (
-        <div className="bg-[#E53939] bg-gradient-to-bl from-[#FFF]/40 to-[#FFF]/10 filter blur-[100px] xl:blur-[120px] self-end w-[6.0rem] h-[6.0rem] xl:w-[12.0rem] xl:h-[12.0rem] right-0 rounded-full"></div>
+        <div className="bg-[#E53939] bg-gradient-to-bl from-[#FFF]/40 to-[#FFF]/10 filter blur-[10.0rem] xl:blur-[12.0rem] self-end w-[6.0rem] h-[6.0rem] xl:w-[12.0rem] xl:h-[12.0rem] right-0 rounded-full"></div>
     )
 }
 
@@ -88,7 +88,7 @@ function Description() {
 
 function Button() {
     return (
-        <div className="inline-block bg-gradient-to-tl from-white/10 to-white/40 bg-[#E53939] p-[1px] rounded-[3.6rem]">
+        <div className="inline-block bg-gradient-to-tl from-white/10 to-white/40 bg-[#E53939] p-[0.1rem] rounded-[3.6rem]">
             <button className="bg-[#E53939] text-[#FFFFFF] hover:bg-white hover:text-black transition-colors duration-300 w-full h-full px-[2.5rem] py-[1.5rem] rounded-[3.6rem]">
                 <p className="text-[1.2rem] lg:text-[1.6rem] leading-[1.6rem]">Junte-se ao Discord</p>
             </button>
