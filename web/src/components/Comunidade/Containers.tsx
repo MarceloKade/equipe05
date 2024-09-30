@@ -14,8 +14,8 @@ function ContainerSection({ children }: Props) {
 }
 function Container({ children }: Props) {
     return (
-        <div className="relative w-[122.5rem] flex justify-center items-center">
-            <div className="absolute inset-0 -z-10 right-0 -mr-[20rem]">
+        <div className="relative w-full flex justify-center items-center">
+            <div className="absolute w-full inset-0 -z-10 right-0 -mr-[20rem]">
                 <E.bgImage />
             </div>
             {children}
