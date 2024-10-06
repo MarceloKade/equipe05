@@ -7,18 +7,25 @@ type Props = {
 
 function ContainerSection({ children }: Props) {
     return (
-        <section className="relative w-full px-[1.6rem] py-[6.4rem] xl:px-[11.95rem] xl:py-[7.2rem] flex justify-center items-center">
-            <div className="absolute inset-0 -z-10 right-0 -mr-[20rem]">
+        <section id='Comunidade' className="w-full flex justify-center px-[1.6rem] py-[6.4rem] xl:px-[11.95rem] xl:py-[7.2rem]">
+            {children}
+        </section>
+    )
+}
+function Container({ children }: Props) {
+    return (
+        <div className="relative w-full flex justify-center items-center">
+            <div className="absolute w-full inset-0 -z-10 right-0 -mr-[20rem]">
                 <E.bgImage />
             </div>
             {children}
-        </section>
+        </div>
     )
 }
 
 function DiscordContainer({ children }: Props) {
     return (
-        <div className="w-full h-[519px] px-[1.0rem] py-[3.5rem]">
+        <div className="w-[101.6rem] h-[51.9rem] px-[1.0rem] py-[3.5rem]">
             {children}
         </div>
     )
@@ -64,6 +71,7 @@ function ShapeContainer({ children }: Props) {
 
 export {
     ContainerSection,
+    Container,
     DiscordContainer,
     ShapeColorContainer,
     ShapeContainer,

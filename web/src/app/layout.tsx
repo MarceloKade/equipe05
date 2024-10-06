@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Manrope, Roboto } from "next/font/google";
 import "./globals.css";
+import { TopBar } from "@/components/TopBar/Topbar";
+import { Footer } from "@/components/Footer/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,9 +38,11 @@ export default function RootLayout({
 
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} ${manrope.className} ${roboto.className} font-sans bg`}>
+    <html lang="en" className="scroll-smooth">
+      <body className={`${manrope.className} bg-backgroundDef text-white`}>
+        <TopBar />
         {children}
+        <Footer/>
       </body>
     </html>
   );

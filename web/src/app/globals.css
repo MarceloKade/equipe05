@@ -1,3 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  font-size: 62.5%;
+}
+.containerTextEquipe {
+  color: #ffffff;
+  max-width: 768px;
+  margin: auto;
+}
+
+.nossaEquipe {
+  margin-top: 112px;
+  margin-bottom: 112px;
+}
+.card {
+  background-color: #111114;
+  border: 1px solid #27272a;
+  min-width: 270px;
+  color: white;
+  font-family: "Manrope", sans-serif;
+}
+
+.comunidadeFeedbacks {
+  border-width: 1px;
+  border-image: linear-gradient(
+      to_bottom,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1)
+    )
+    _1;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  z-index: 1;
+  position: absolute;
+  left: 11px;
+  cursor: pointer;
+}
+.react-tel-input .country-list .country:hover {
+  background-color: #717171 !important;
+  color: white !important;
+}
+.react-tel-input .country-list .country {
+  background-color: #111114 !important;
+  color: white !important;
+}
+.react-tel-input .country-list {
+  border: 1px solid #525252 !important;
+}
+.react-tel-input .selected-flag {
+  background-color: transparent !important;
+  width: 4.5rem !important;
+  padding-left: 1.2rem !important;
+  border-radius: 0.8rem 0 0 0.8rem !important;
+}
+.react-tel-input .selected-flag:hover {
+  background-color: #717171 !important;
+}
+.react-tel-input .selected-flag .flag .arrow {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4b/Feather-arrows-chevron-down.svg") !important;
+  background-size: 10px 10px;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  width: 10px !important;
+  height: 10px !important;
+  margin-top: -5px !important;
+  border: none !important;
+  content: "" !important;
+  filter: invert(73%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(93%)
+    contrast(82%);
+}
+
+.hide-scrollbar {
+  scrollbar-width: none; /* Para Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Para Chrome, Safari e outros navegadores baseados em WebKit */
+}

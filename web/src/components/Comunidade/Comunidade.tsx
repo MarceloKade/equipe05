@@ -4,6 +4,7 @@ import * as E from "./Elements"
 export default function Comunidade() {
     return (
         <C.ContainerSection>
+        <C.Container>
             <C.DiscordContainer>
                 <C.ShapeColorContainer>
                     <C.InnerContainer>
@@ -23,6 +24,7 @@ export default function Comunidade() {
                     <E.Circle3 />
                 </C.ShapeColorContainer>
             </C.DiscordContainer>
+        </C.Container>
         </C.ContainerSection>
     )
 }
