@@ -30,7 +30,7 @@ function SocialMediaTitle({ children }: Props) {
 
 function SocialMediaSubtitle({ children }: Props) {
   return (
-    <span className="text-[1.4rem] font-normal leading-[2rem] text-white">
+    <span className="hidden lg:flex text-[1.4rem] font-normal leading-[2rem] text-white">
       {children}
     </span>
   );
@@ -47,7 +47,7 @@ function FormTitle({ children }: Props) {
 function InputName() {
   return (
     <input
-      className="w-[213px] h-[48px] border border-[#27272A] rounded-[8px] p-[12px_24px] gap-[8px] bg-transparent font-['Roboto'] text-[16px] font-normal leading-[24px] text-[#A3A3A3]"
+      className="w-full lg:w-[213px] h-[48px] border border-[#27272A] rounded-[8px] p-[12px_24px] gap-[8px] bg-transparent text-[16px] font-normal leading-[24px] text-[#A3A3A3]"
       type="text"
       placeholder="Insira seu nome"
     />
@@ -57,7 +57,7 @@ function InputName() {
 function InputEmail() {
   return (
     <input
-      className="w-[271px] h-[48px] border border-[#27272A] rounded-[8px] p-[12px_24px] gap-[8px] bg-transparent font-['Roboto'] text-[16px] font-normal leading-[24px] text-[#A3A3A3]"
+      className="w-full lg:w-[271px] h-[48px] border border-[#27272A] rounded-[8px] p-[12px_24px] gap-[8px] bg-transparent text-[16px] font-normal leading-[24px] text-[#A3A3A3]"
       type="text"
       placeholder="Insira seu email"
     />
@@ -67,7 +67,7 @@ function InputEmail() {
 function InputMessage() {
   return (
     <input
-      className="w-[500px] h-[48px] border border-[#27272A] rounded-[8px] p-[12px_24px] gap-[8px] bg-transparent font-['Roboto'] text-[16px] font-normal leading-[24px] text-[#A3A3A3]"
+      className="w-full lg:w-[500px] h-[48px] border border-[#27272A] rounded-[8px] p-[12px_24px] gap-[8px] bg-transparent text-[16px] font-normal leading-[24px] text-[#A3A3A3]"
       type="text"
       placeholder="Mensagem"
     />
@@ -76,7 +76,7 @@ function InputMessage() {
 
 function Button({ children }: Props) {
   return (
-    <button className="w-[97px] h-[48px] bg-white hover:bg-primitive-500 hover:text-white transition-colors duration-300 rounded-[0.8rem] ml-[403px] font-manrope text-[1.6rem] font-bold leading-[150%] text-[#09090B] cursor-pointer">
+    <button className="w-full lg:w-[97px] h-[48px] bg-white hover:bg-primitive-500 hover:text-white transition-colors duration-300 rounded-[0.8rem] lg:ml-[403px] font-manrope text-[1.6rem] font-bold leading-[150%] text-[#09090B] cursor-pointer">
       {children}
     </button>
   );
