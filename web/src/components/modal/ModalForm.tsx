@@ -46,7 +46,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
             Preencha o formulário com suas informações
           </p>
         </div>
-        <div className="w-full flex-col flex gap-[1.5rem] xl:flex-row xl:gap-[3.2rem]">
+        <div className="w-full flex-col flex gap-[1.5rem] xl:flex-row xl:gap-[3.2rem] mt-[1.5rem]">
           <div className="flex flex-col w-full">
             <label className="text-[1.6rem]" htmlFor="nome">
               Nome*
@@ -70,7 +70,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
             />
           </div>
         </div>
-        <div className="w-full flex-col flex gap-[1.5rem] xl:flex-row xl:gap-[3.2rem]">
+        <div className="w-full flex-col flex gap-[1.5rem] xl:flex-row xl:gap-[3.2rem] mt-[1.5rem]">
           <div className="flex flex-col w-full">
             <label className="text-[1.6rem]" htmlFor="whatsapp">
               Whatsapp*
@@ -123,7 +123,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
             </div>
           </div>
         </div>
-        <div className="w-full flex-col flex gap-[1.5rem] xl:flex-row xl:gap-[3.2rem]">
+        <div className="w-full flex-col flex gap-[1.5rem] xl:flex-row xl:gap-[3.2rem] mt-[1.5rem]">
           <div className="flex flex-col w-full">
             <label
               htmlFor="area-de-interesse"
@@ -209,7 +209,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
             </div>
           </div>
         </div>
-        <div className="w-full flex-col flex gap-[1.5rem] xl:flex-row xl:gap-[3.2rem]">
+        <div className="w-full flex-col flex gap-[1.5rem] xl:flex-row xl:gap-[3.2rem] mt-[1.5rem]">
           <div className="flex flex-col w-full relative">
             <label
               htmlFor="data"
@@ -270,7 +270,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
             </div>
           </div>
         </div>
-        <div className="w-full flex">
+        <div className="w-full flex mt-[1.5rem]">
           <div className="mr-[1.48rem] w-[1.583rem] h-[1.583rem] relative">
             <input
               type="checkbox"
@@ -310,7 +310,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
             da Código certo coders.
           </label>
         </div>
-        <div className="w-full flex justify-end font-bold gap-[0.8rem] text-[1.4rem]">
+        <div className="w-full flex justify-end font-bold gap-[0.8rem] text-[1.4rem] mt-[1.5rem]">
           <button
             className="flex px-[3.2rem] py-[0.4rem] rounded-[0.8rem] text-[#A3A3A3] border border-[#A3A3A3]"
             type="submit"
