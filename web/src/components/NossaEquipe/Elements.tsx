@@ -16,7 +16,7 @@ export interface CardProps {
 
 function Titulo() {
   return (
-    <h2 className="text-[3.2rem] leading-[120%] lg:text-[4.8rem] font-bold text-center">
+    <h2 className="text-[3.2rem] leading-[120%] lg:text-[4.8rem] font-bold text-center gradient-text">
       Conheça nossa equipe de liderança
     </h2>
   );

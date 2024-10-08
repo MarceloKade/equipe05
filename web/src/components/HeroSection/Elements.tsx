@@ -5,7 +5,7 @@ import Link from "next/link";
 
 function titulo() {
   return (
-    <h2 className="h-[24.2rem] title-heroSection bg-clip-text text-transparent bg-gradient-to-r from-[#A6A6A6] via-[#FFF] to-[#A3A3A3] md:w-[646px] lg:text-[64px] lg:leading-[72px]">
+    <h2 className="h-[24.2rem] title-heroSection gradient-text md:w-[646px] lg:text-[64px] lg:leading-[72px]">
       Impulsione Seu Futuro na Área Tech com a Código Certo!
     </h2>
   );

@@ -31,7 +31,7 @@ export function SideBar({ onClose }: SideBarProps) {
             onClick={onClose}
           >
             <li>
-              <Link href="#Sobre">Sobre</Link>
+              <Link href="#SaibaMais">Sobre</Link>
             </li>
 
             <li>

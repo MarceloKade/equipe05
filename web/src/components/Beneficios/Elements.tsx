@@ -5,7 +5,7 @@ import Business from "@/assets/briefcase-business.svg";
 
 function titulo() {
   return (
-    <h2 className="font-bold leading-[120%] md-leading-[120%] bg-clip-text text-transparent bg-gradient-to-r from-[#A6A6A6] via-[#FFF] to-[#A3A3A3] text-[3.2rem] lg:text-[4.8rem]">
+    <h2 className="font-bold leading-[120%] md-leading-[120%] gradient-text text-[3.2rem] lg:text-[4.8rem]">
       Por que se juntar a comunidade da Código Certo?
     </h2>
   );
@@ -24,7 +24,7 @@ function descricao() {
 
 function projetos() {
   return (
-    <div className="flex flex-col items-center justify-around leading-normal text-white space-y-6 w-[398px] md:w-[549px] py-8 flex-1 border rounded-3xl border-neutral-700 bg-[#111114]">
+    <div className="flex flex-col items-center justify-around leading-normal text-white space-y-6 w-full md:w-[549px] py-8 flex-1 border rounded-3xl border-neutral-700 bg-[#111114]">
       <Image
         src={Bro}
         alt="Charts Bro"
@@ -33,7 +33,9 @@ function projetos() {
         className="w-[209px] md:w-[419px]"
       />
       <div className="p-12 m-0 space-y-6">
-        <h3 className="font-bold text-[20px] md:text-[40px]">Desenvolvimento de Projetos</h3>
+        <h3 className="font-bold text-[20px] md:text-[40px]">
+          Desenvolvimento de Projetos
+        </h3>
         <p className="text-base md:text-xl	leading-[30px]">
           Você encontrará desenvolvedores experientes e iniciantes, todos
           trabalhando juntos para resolver problemas e criar soluções
@@ -47,7 +49,7 @@ function projetos() {
 
 function habilidades() {
   return (
-    <div className=" text-white flex flex-col space-y-6 w-[398px] md:w-[548px] p-12 border rounded-3xl border-neutral-700 bg-[#111114]">
+    <div className=" text-white flex flex-col space-y-6 w-full md:w-[548px] p-12 border rounded-3xl border-neutral-700 bg-[#111114]">
       <Image
         src={Code}
         alt="code-xml"
@@ -55,7 +57,9 @@ function habilidades() {
         height={48}
         className="w-[48px] xl:w-[48px]"
       />
-      <h3 className="font-bold text-[20px] md:text-[40px]">Desenvolvimento de Habilidades</h3>
+      <h3 className="font-bold text-[20px] md:text-[40px]">
+        Desenvolvimento de Habilidades
+      </h3>
       <p className="text-base md:text-xl	leading-[30px]">
         Você está pronto para levar sua habilidade de desenvolvimento para o
         próximo nível? A comunidade Código Certo é o lugar perfeito para você.
@@ -66,7 +70,7 @@ function habilidades() {
 
 function networking() {
   return (
-    <div className="text-white flex flex-col space-y-6 w-[398px] md:w-[548px] border rounded-3xl border-neutral-700 bg-[#111114] p-12">
+    <div className="text-white flex flex-col space-y-6 w-full md:w-[548px] border rounded-3xl border-neutral-700 bg-[#111114] p-12">
       <Image
         src={Business}
         alt="lucide/briefcase-business"
@@ -74,8 +78,10 @@ function networking() {
         height={48}
         className="w-[48px] xl:w-[48px]"
       />
-      <h3 className="font-bold text-[20px] md:text-[40px]">Oportunidades de Networking</h3>
-      <p id='Oportunidades' className="text-base md:text-xl	leading-[30px]">
+      <h3 className="font-bold text-[20px] md:text-[40px]">
+        Oportunidades de Networking
+      </h3>
+      <p id="Oportunidades" className="text-base md:text-xl	leading-[30px]">
         Conecte-se com outros desenvolvedores de software e expanda sua rede de
         contatos.
       </p>

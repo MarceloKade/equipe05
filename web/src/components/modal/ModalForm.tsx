@@ -20,10 +20,13 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
   const [phone, setPhone] = useState("");
   return (
     <div
+      className="fixed inset-0 flex justify-center bg-black bg-opacity-90 z-30 px-[1.6rem] xl:p-0 py-[2rem]"
       onClick={handleModalFormClose}
-      className="fixed inset-0 flex justify-center bg-black bg-opacity-90 z-40"
     >
-      <div className="w-full flex flex-col xl:w-[68.2rem] text-white py-[2.1rem] px-[2.6rem] xl:py-[4.1rem] xl:px-[4.6rem] xl:justify-between rounded-[2.4rem] bg-[#111114] z-50">
+      <form
+        className="w-full flex flex-col xl:w-[68.2rem] text-white py-[2.1rem] px-[2.6rem] xl:py-[4.1rem] xl:px-[4.6rem] xl:justify-between rounded-[2.4rem] bg-[#111114] z-50 overflow-y-auto hide-scrollbar"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="w-full h-[3.6rem] flex justify-end">
           <button
             className="rounded-full bg-[#171717] flex justify-center items-center p-[1.0rem]"
@@ -36,7 +39,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
           <LogoCoders className="w-[4.8rem] h-[3.2rem]" />
         </div>
         <div className="w-full">
-          <h2 className="text-center h-auto text-[2.4rem] leading-[3.6rem] tracking-tighter font-manrope font-bold bg-gradient-to-r from-[#A6A6A6] via-[#FFFFFF] to-[#A3A3A3] text-transparent bg-clip-text break-words">
+          <h2 className="text-center h-auto text-[2.4rem] leading-[3.6rem] tracking-tighter font-manrope font-bold gradient-text break-words">
             Ingressar na comunidade
           </h2>
           <p className="text-[1.6rem] leading-[2.4rem] mt-[3.2rem] text-center text-[#A1A1AA] mx-auto">
@@ -326,7 +329,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
             </p>
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

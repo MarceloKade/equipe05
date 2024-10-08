@@ -117,7 +117,7 @@ function ImgCard7() {
 
 function titulo() {
   return (
-    <h2 className="text-center font-bold leading-[3.6rem] lg:w-[88.4rem] lg:leading-[5.6rem] bg-clip-text text-transparent bg-gradient-to-r from-[#A6A6A6] via-[#FFF] to-[#A3A3A3] text-[3.6rem] lg:text-[4.8rem]">
+    <h2 className="text-center font-bold leading-[3.6rem] lg:w-[88.4rem] lg:leading-[5.6rem] gradient-text text-[3.6rem] lg:text-[4.8rem]">
       Venha fazer parte dessa comunidade que não para de crescer!
     </h2>
   );
@@ -145,7 +145,7 @@ function buttonQueroMeInscrever({
   return (
     <button
       onClick={handleModalFormOpen}
-      className="btn-participe hover:bg-white hover:text-black transition-colors duration-300 xl:text-[1.8rem] xl:font-semibold xl:leading-[3.2rem]"
+      className="btn-participe hover:bg-white hover:text-black transition-colors duration-300 text-[1.6rem] xl:text-[1.8rem] xl:font-semibold xl:leading-[3.2rem]"
     >
       Quero me inscrever
     </button>
