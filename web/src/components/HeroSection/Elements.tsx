@@ -2,7 +2,6 @@ import Image from "next/image";
 import tagImage from "@/assets/Tag.png";
 import mapImage from "@/assets/map.svg";
 import Link from "next/link";
-import { useToggle } from "@/hooks/useToggle";
 
 function titulo() {
   return (

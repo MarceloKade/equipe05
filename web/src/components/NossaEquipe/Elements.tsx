@@ -16,7 +16,7 @@ export interface CardProps {
 
 function Titulo() {
   return (
-    <h2 className="text-[4.8rem] font-bold text-center">
+    <h2 className="text-[3.2rem] leading-[120%] lg:text-[4.8rem] font-bold text-center">
       Conheça nossa equipe de liderança
     </h2>
   );
@@ -24,7 +24,7 @@ function Titulo() {
 
 function Descricao() {
   return (
-    <p className="text-[1.8rem] mt-6">
+    <p className="text-[1.6rem] leading-[150%] xl:text-[1.8rem] mt-6">
       A nossa equipe de liderança é composta por profissionais experientes que
       trabalham juntos para impulsionar a comunidade Código Certo para frente.
     </p>

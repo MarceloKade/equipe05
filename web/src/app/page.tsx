@@ -9,15 +9,15 @@ import Newsletter from "@/components/Newsletter/Newsletter";
 
 export default function Home() {
   return (
-    <main className="pt-[9.6rem]">
+    <main className="pt-[9.6rem] flex flex-col gap-[6.4rem] xl:gap-0">
       <HeroSection />
-      <QuemSomos/>
+      <QuemSomos />
       <Beneficios />
-      <Oportunidades/>
+      <Oportunidades />
       <NossaEquipe />
-      <Feedbacks/>
-      <Comunidade/>
-      <Newsletter/>
+      <Feedbacks />
+      <Comunidade />
+      <Newsletter />
     </main>
   );
 }

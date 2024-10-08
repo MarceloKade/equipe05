@@ -11,8 +11,8 @@ export default function Feedbacks() {
   return (
     <C.ContainerSection>
       <C.ContainerFeedbacks>
+        <C.GridContainer></C.GridContainer>
         <C.SmallContainer>
-          <C.GridContainer></C.GridContainer>
           <C.ContainerTitle>
             <E.comunidadeFeedbacks />
             <E.titulo />
