@@ -5,16 +5,12 @@ type Props = {
 };
 
 function ContainerText({ children }: Props) {
-  return (
-    <section className="containerTextEquipe">
-      {children}
-    </section>
-  );
+  return <section className="containerTextEquipe">{children}</section>;
 }
 
 function ContainerCards({ children }: Props) {
   return (
-    <section className="containerCard flex justify-center flex-wrap gap-x-2.5">
+    <section className="containerCard flex justify-center flex-wrap mt-[4rem] gap-x-[1.6rem]">
       {children}
     </section>
   );

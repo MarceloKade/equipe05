@@ -41,6 +41,7 @@ export function Footer() {
           </C.Contacts>
           <C.Social>
             <E.SocialMediaTitle>Nossas redes sociais</E.SocialMediaTitle>
+            <C.DividerMobile/>
             <C.SocialDetails>
               <C.SocialAddress>
                 <Image src={footerGithubImage} alt="github" />
@@ -78,15 +79,17 @@ export function Footer() {
         </C.FormContainer>
       </C.SocialForm>
       <C.Divider />
-      <C.Copyright>
-        <E.CopyrightText>
-          &copy; 2024 Código Certo Coders. Todos os direitos reservados
-        </E.CopyrightText>
-        <C.Terms>
-          <E.Link>Política de Privacidade</E.Link>
-          <E.Link>Termos de Serviço</E.Link>
-        </C.Terms>
-      </C.Copyright>
+      <div className="w-full flex justify-start">
+        <C.Copyright>
+          <E.CopyrightText>
+            &copy; 2024 Código Certo Coders. Todos os direitos reservados
+          </E.CopyrightText>
+          <C.Terms>
+            <E.Link>Política de Privacidade</E.Link>
+            <E.Link>Termos de Serviço</E.Link>
+          </C.Terms>
+        </C.Copyright>
+      </div>
     </C.Container>
   );
 }
