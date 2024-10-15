@@ -1,10 +1,10 @@
-from django.contrib import admin
 from django.urls import path
-
-from .views import contact_create, contact_list_view
+from .views import usuario_create, newsletter_create, entre_em_contato_create
 
 urlpatterns = [
-    path('api/contacts/', contact_create, name='contact-create'),
-    path('contacts/', contact_list_view, name='contact-list'),
+    path('usuarios/', usuario_create, name='usuario-create'),
+    path('newsletter/', newsletter_create, name='newsletter-create'),
+    path('contato/', entre_em_contato_create, name='contato-create'),
 ]
+
 

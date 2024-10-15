@@ -1,24 +1,33 @@
 from rest_framework import serializers
-from .models import Contact
+from .models import Usuario, Newsletter, EntreEmContato
 import re
 
-class ContactSerializer(serializers.ModelSerializer):
+class UsuarioSerializer(serializers.ModelSerializer):
+    def validate_email(self, value):
+        if '@' not in value:
+            raise serializers.ValidationError("O e-mail deve ser válido.")
+        return value
+
     class Meta:
-        model = Contact
+        model = Usuario
         fields = '__all__'
 
-    def validate_name(self, value):
-        if not value:
-            raise serializers.ValidationError("O nome não pode ser nulo.")
-        return value
-
+class NewsletterSerializer(serializers.ModelSerializer):
     def validate_email(self, value):
-        email_regex = r'^[\w\.-]+@[\w\.-]+\.\w+$'
-        if not re.match(email_regex, value):
-            raise serializers.ValidationError("Formato de email inválido.")
+        if '@' not in value:
+            raise serializers.ValidationError("O e-mail deve ser válido.")
         return value
 
-    def validate_message(self, value):
-        if not value:
-            raise serializers.ValidationError("A mensagem não pode ser nula.")
+    class Meta:
+        model = Newsletter
+        fields = '__all__'
+
+class EntreEmContatoSerializer(serializers.ModelSerializer):
+    def validate_email(self, value):
+        if '@' not in value:
+            raise serializers.ValidationError("O e-mail deve ser válido.")
         return value
+
+    class Meta:
+        model = EntreEmContato
+        fields = '__all__'
