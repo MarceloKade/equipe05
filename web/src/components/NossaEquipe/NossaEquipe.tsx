@@ -1,60 +1,59 @@
 import * as C from "./Containers";
 import * as E from "./Elements";
-import linkedinIcon from "@/assets/github.svg";
-import xIcon from "@/assets/x.svg";
-import githubIcon from "@/assets/github.svg";
+import linkedinIcon from "../../assets/NossaEquipe/linkedin-nossa-equipe.svg";
+import xIcon from "../../assets/NossaEquipe/x-nossa-equipe.svg";
+import githubIcon from "../../assets/NossaEquipe/github-nossa-equipe.svg";
 
 const equipe: E.CardProps[] = [
   {
-    nome: 'Tess Reid',
-    area: 'FullStack',
-    cargo: 'Developer',
-    imagem: '/tessReid.jpg',
+    nome: "Tess Reid",
+    area: "FullStack",
+    cargo: "Developer",
+    imagem: "/tessReid.jpg",
     icones: [
-      { src: linkedinIcon, url: '#', alt: 'LinkedIn' },
-      { src: xIcon, url: '#', alt: 'X' },
-      { src: githubIcon, url: '#', alt: 'GitHub' }
+      { src: linkedinIcon, url: "#", alt: "LinkedIn" },
+      { src: xIcon, url: "#", alt: "X" },
+      { src: githubIcon, url: "#", alt: "GitHub" },
     ],
-   
   },
   {
-    nome: 'Ben Jhonston',
-     area: 'BackEnd',
-    cargo: 'Developer',
-    imagem: '/benJohnston.jpg',
+    nome: "Ben Jhonston",
+    area: "BackEnd",
+    cargo: "Developer",
+    imagem: "/benJohnston.jpg",
     icones: [
-      { src: linkedinIcon, url: '#', alt: 'LinkedIn' },
-      { src: xIcon, url: '#', alt: 'X' },
-      { src: githubIcon, url: '#', alt: 'GitHub' }
-    ]
+      { src: linkedinIcon, url: "#", alt: "LinkedIn" },
+      { src: xIcon, url: "#", alt: "X" },
+      { src: githubIcon, url: "#", alt: "GitHub" },
+    ],
   },
   {
-    nome: 'Liliana Shelton',
-     area: 'Senior Product',
-    cargo: 'Designer',
-    imagem: '/lilianaShelton.png',
+    nome: "Liliana Shelton",
+    area: "Senior Product",
+    cargo: "Designer",
+    imagem: "/lilianaShelton.png",
     icones: [
-      { src: linkedinIcon, url: '#', alt: 'LinkedIn' },
-      { src: xIcon, url: '#', alt: 'X' },
-      { src: githubIcon, url: '#', alt: 'GitHub' }
-    ]
+      { src: linkedinIcon, url: "#", alt: "LinkedIn" },
+      { src: xIcon, url: "#", alt: "X" },
+      { src: githubIcon, url: "#", alt: "GitHub" },
+    ],
   },
   {
-    nome: 'Camrym Berry',
-    area: 'FrontEnd', 
-    cargo: 'Developer',
-    imagem: '/camrymBerry.jpg',
+    nome: "Camrym Berry",
+    area: "FrontEnd",
+    cargo: "Developer",
+    imagem: "/camrymBerry.jpg",
     icones: [
-      { src: linkedinIcon, url: '#', alt: 'LinkedIn' },
-      { src: xIcon, url: '#', alt: 'X' },
-      { src: githubIcon, url: '#', alt: 'GitHub' }
-    ]
+      { src: linkedinIcon, url: "#", alt: "LinkedIn" },
+      { src: xIcon, url: "#", alt: "X" },
+      { src: githubIcon, url: "#", alt: "GitHub" },
+    ],
   },
 ];
 
 export default function NossaEquipe() {
   return (
-    <section className="nossaEquipe text-center py-6 px-8 mx[192]">
+    <section className="nossaEquipe text-center py-6 px-8 mx-[192]">
       <C.ContainerText>
         <E.Titulo />
         <E.Descricao />

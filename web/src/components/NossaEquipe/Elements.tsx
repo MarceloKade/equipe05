@@ -16,33 +16,34 @@ export interface CardProps {
 
 function Titulo() {
   return (
-    <h1 className="text-4xl font-bold text-center">
+    <h2 className="text-[3.2rem] leading-[120%] lg:text-[4.8rem] font-bold text-center gradient-text">
       Conheça nossa equipe de liderança
-    </h1>
+    </h2>
   );
 }
 
 function Descricao() {
   return (
-    <p className="text-lg mt-6">
-      A nossa equipe de liderança é composta por profissionais experientes que trabalham juntos para impulsionar a comunidade Código Certo para frente.
+    <p className="text-[1.6rem] leading-[150%] xl:text-[1.8rem] mt-6">
+      A nossa equipe de liderança é composta por profissionais experientes que
+      trabalham juntos para impulsionar a comunidade Código Certo para frente.
     </p>
   );
 }
 
 function Card({ nome, area, cargo, imagem, icones }: CardProps) {
   return (
-    <div className="border rounded-2xl pr-4 pl-4 py-6 card mt-20">
-      <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-2">
+    <div className="border rounded-2xl pr-4 pl-4 py-6 card mt-20 h-[273px] w-[270px]">
+      <div className="w-[80px] h-[80px] rounded-full overflow-hidden mx-auto mb-2">
         <Image src={imagem} alt={nome} width={100} height={100} priority />
       </div>
-      <h2 className="text-xl font-semibold text-[20px]">{nome}</h2>
-      <p className="font-normal text-[18px] break-words">{area}</p>
-      <p className="font-normal text-[18px] break-words">{cargo}</p>
-      <div className="flex justify-center space-x-2 mt-4">
+      <p className="text-[2rem] font-semibold mt-[0.8rem]">{nome}</p>
+      <p className="font-normal text-[2rem] break-words mt-[1.2rem]">{area}</p>
+      <p className="font-normal text-[2rem] break-words">{cargo}</p>
+      <div className="flex justify-center space-x-2 mt-[1.2rem]">
         {icones.map((icone, index) => (
           <a key={index} href={icone.url}>
-            <Image src={icone.src} alt={icone.alt} width={24} height={24} />
+            <Image src={icone.src} alt={icone.alt} width={28} height={28} />
           </a>
         ))}
       </div>

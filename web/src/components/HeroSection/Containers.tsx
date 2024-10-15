@@ -1,33 +1,29 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
 
 type Props = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
-function ContainerText({ children }: Props) {
-  return(
-    <section className="containerText xl:py-0 xl:px-16">
+function ContainerHeroSection({ children }: Props) {
+  return (
+    <div className="heroSection lg:flex-row lg:px-[2.4rem] lg:py-[7.2rem]">
       {children}
-    </section>
-  )
+    </div>
+  );
+}
+function ContainerText({ children }: Props) {
+  return <div className="containerText lg:py-0 lg:px-[6.4rem]">{children}</div>;
 }
 function ContainerButtons({ children }: Props) {
-  return(
-    <section className="containerButtons gap-[10px]">
-      {children}
-    </section>
-  )
+  return <div className="containerButtons gap-[10px]">{children}</div>;
 }
 function ContainerImage({ children }: Props) {
-  return(
-    <section>
-      {children}
-    </section>
-  )
+  return <div>{children}</div>;
 }
 
 export {
+  ContainerHeroSection,
   ContainerText,
   ContainerButtons,
-  ContainerImage
-}
+  ContainerImage,
+};
