@@ -11,7 +11,7 @@ def usuario_create(request):
         usuarios = Usuario.objects.all()
         serializer = UsuarioSerializer(usuarios, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
+
     if request.method == 'POST':
         serializer = UsuarioSerializer(data=request.data)
         if serializer.is_valid():
@@ -26,7 +26,7 @@ def newsletter_create(request):
         newsletters = Newsletter.objects.all()
         serializer = NewsletterSerializer(newsletters, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
+
     if request.method == 'POST':
         serializer = NewsletterSerializer(data=request.data)
         if serializer.is_valid():
@@ -40,12 +40,11 @@ def entre_em_contato_create(request):
     if request.method == 'GET':
         contatos = EntreEmContato.objects.all()
         serializer = EntreEmContatoSerializer(contatos, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    
+        return Response(serializer.data,content_type="application/json", status=status.HTTP_200_OK)
+
     if request.method == 'POST':
         serializer = EntreEmContatoSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({'message': 'Contato salvo com sucesso!'}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
