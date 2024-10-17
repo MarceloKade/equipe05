@@ -1,7 +1,8 @@
-import { ReactNode } from "react";
+import { FormEvent, ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
+  onSubmit?: (event: FormEvent<HTMLFormElement>) => Promise<void>;
 };
 
 function Container({ children }: Props) {
@@ -61,9 +62,12 @@ function FormContainer({ children }: Props) {
   );
 }
 
-function Form({ children }: Props) {
+function Form({ children, onSubmit }: Props) {
   return (
-    <form className="flex flex-col items-center gap-[3.8rem] w-full">
+    <form
+      onSubmit={onSubmit}
+      className="flex flex-col items-center gap-[3.8rem] w-full"
+    >
       {children}
     </form>
   );

@@ -1,3 +1,5 @@
+"use client";
+
 import * as C from "./Containers";
 import * as E from "./Elements";
 import footerLogoImage from "../../assets/footer-logo.svg";
@@ -9,8 +11,48 @@ import footerWhatsAppImage from "../../assets/footer-whatsapp.svg";
 import footerXImage from "../../assets/footer-x.svg";
 import footerYouTubeImage from "../../assets/footer-youtube.svg";
 import Image from "next/image";
+import { useState } from "react";
 
 export function Footer() {
+  const [message, setMessage] = useState<string | null>(null); // Estado para mensagem de sucesso
+  const [errorMessage, setErrorMessage] = useState<string | null>(null); // Estado para mensagem de erro
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLInputElement).value,
+    };
+
+    try {
+      const response = await fetch(
+        "https://automatic-invention-rvpxqg4567gh4x5-8000.app.github.dev/contato/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+      if (response.ok) {
+        setMessage("Contato enviado com sucesso!"); // Exibe mensagem de sucesso
+        setErrorMessage(null);
+      } else {
+        setErrorMessage("Erro ao enviar contato. Tente novamente."); // Exibe mensagem de erro
+        setMessage(null);
+      }
+    } catch (error) {
+      setErrorMessage("Erro na requisição. Verifique sua conexão."); // Exibe erro de requisição
+      setMessage(null);
+    }
+  };
+
   return (
     <C.Container>
       <C.SocialForm>
@@ -41,7 +83,7 @@ export function Footer() {
           </C.Contacts>
           <C.Social>
             <E.SocialMediaTitle>Nossas redes sociais</E.SocialMediaTitle>
-            <C.DividerMobile/>
+            <C.DividerMobile />
             <C.SocialDetails>
               <C.SocialAddress>
                 <Image src={footerGithubImage} alt="github" />
@@ -68,7 +110,7 @@ export function Footer() {
         </C.SocialMedia>
         <C.FormContainer>
           <E.FormTitle>Entre em contato</E.FormTitle>
-          <C.Form>
+          <C.Form onSubmit={handleSubmit}>
             <C.InputsContainer>
               <E.InputName />
               <E.InputEmail />
@@ -76,6 +118,9 @@ export function Footer() {
             <E.InputMessage />
             <E.Button>Enviar</E.Button>
           </C.Form>
+          {/* Exibe a mensagem de sucesso ou erro */}
+          {message && <p className="text-green-500">{message}</p>}
+          {errorMessage && <p className="text-red-500">{errorMessage}</p>}
         </C.FormContainer>
       </C.SocialForm>
       <C.Divider />

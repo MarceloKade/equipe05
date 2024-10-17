@@ -47,6 +47,7 @@ function FormTitle({ children }: Props) {
 function InputName() {
   return (
     <input
+      name="name"
       className="w-full lg:w-[213px] h-[48px] border border-[#27272A] rounded-[8px] p-[12px_24px] gap-[8px] bg-transparent text-[16px] font-normal leading-[24px] text-[#A3A3A3]"
       type="text"
       placeholder="Insira seu nome"
@@ -57,6 +58,7 @@ function InputName() {
 function InputEmail() {
   return (
     <input
+      name="email"
       className="w-full lg:w-[271px] h-[48px] border border-[#27272A] rounded-[8px] p-[12px_24px] gap-[8px] bg-transparent text-[16px] font-normal leading-[24px] text-[#A3A3A3]"
       type="text"
       placeholder="Insira seu email"
@@ -67,6 +69,7 @@ function InputEmail() {
 function InputMessage() {
   return (
     <input
+      name="message"
       className="w-full lg:w-[500px] h-[48px] border border-[#27272A] rounded-[8px] p-[12px_24px] gap-[8px] bg-transparent text-[16px] font-normal leading-[24px] text-[#A3A3A3]"
       type="text"
       placeholder="Mensagem"

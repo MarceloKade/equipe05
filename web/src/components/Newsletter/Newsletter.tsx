@@ -16,6 +16,7 @@ const Newsletter = () => {
           <form className="w-full max-w-[55.3rem] flex flex-col items-center justify-center pt-[1.6rem] gap-[1.6rem]">
             <div className="w-full flex flex-col xl:flex-row justify-between gap-[1.6rem]">
               <input
+                name="email"
                 type="email"
                 placeholder="Insira seu email"
                 className="w-full px-[2.4rem] py-[1.2rem] rounded-[24px] text-[1.6rem] border focus:outline-none gradient-text"

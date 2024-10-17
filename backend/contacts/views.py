@@ -40,7 +40,7 @@ def entre_em_contato_create(request):
     if request.method == 'GET':
         contatos = EntreEmContato.objects.all()
         serializer = EntreEmContatoSerializer(contatos, many=True)
-        return Response(serializer.data,content_type="application/json", status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     if request.method == 'POST':
         serializer = EntreEmContatoSerializer(data=request.data)
