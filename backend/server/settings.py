@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', # adiciona interface de api no browser
     'contacts',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'server.urls'
@@ -129,3 +131,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
         #'rest_framework.renderers.JSONRenderer',
     #),
 #}
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Domínio do seu Next.js durante o desenvolvimento
+    # Adicione outros domínios permitidos
+]
