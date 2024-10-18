@@ -1,5 +1,5 @@
-"use client";
-
+"use client"
+import axios from "axios";
 import * as C from "./Containers";
 import * as E from "./Elements";
 import footerLogoImage from "../../assets/footer-logo.svg";
@@ -22,25 +22,24 @@ export function Footer() {
 
     const form = event.currentTarget;
     const formData = {
-      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      nome: (form.elements.namedItem("nome") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
-      message: (form.elements.namedItem("message") as HTMLInputElement).value,
+      mensagem: (form.elements.namedItem("mensagem") as HTMLInputElement).value,
     };
 
     try {
-      const response = await fetch(
+      const response = await axios.post(
         "https://automatic-invention-rvpxqg4567gh4x5-8000.app.github.dev/contato/",
+        formData,
         {
-          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
         }
       );
 
-      const data = await response.json();
-      if (response.ok) {
+      // Verifica se a resposta é 200 ou 201 (usuário criado)
+      if (response.status === 200 || response.status === 201) {
         setMessage("Contato enviado com sucesso!"); // Exibe mensagem de sucesso
         setErrorMessage(null);
       } else {
