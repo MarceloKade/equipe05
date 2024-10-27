@@ -10,7 +10,7 @@ const Newsletter = () => {
               Inscreva-se em nossa Newsletter
             </h2>
             <p className="text-[1.6rem] pt-[1.6rem] md:pt-[2.4rem] text-gray-400">
-              Join our newsletter to stay up to date on features and releases.
+            Inscreva-se em nossa newsletter para receber as noticias mais recentes
             </p>
           </div>
           <form className="w-full max-w-[55.3rem] flex flex-col items-center justify-center pt-[1.6rem] gap-[1.6rem]">
