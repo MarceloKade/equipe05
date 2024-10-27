@@ -12,13 +12,110 @@ import React, { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
+import ModalSuccess from "./ModalSucess"; // Importar seu modal de sucesso
+import ModalError from "./ModalError"; // Importar seu modal de erro
+import axios from "axios";
+
 interface ModalFormProps {
   handleModalFormClose: () => void;
 }
 
 export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
   const [phone, setPhone] = useState("");
+  const [isSuccessModalOpen, setSuccessModalOpen] = useState(false);
+  const [isErrorModalOpen, setErrorModalOpen] = useState(false);
+  const [validationError, setValidationError] = useState(""); 
+
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+     // Montando os dados de envio no formato esperado
+    // Usando uma asserção de tipo para especificar que o elemento é um HTMLInputElement
+  const nomeElement = document.getElementById("nome") as HTMLInputElement;
+  const sobrenomeElement = document.getElementById("sobrenome") as HTMLInputElement;
+  const emailElement = document.getElementById("email") as HTMLInputElement;
+  const disponibilidadeElement = document.getElementById("disponibilidade") as HTMLInputElement;
+
+   // Obtendo os elementos dos menus dropdown
+   const areaInteresseElement = document.getElementById("areaDeInteresse") as HTMLSelectElement;
+   const turnoElement = document.getElementById("turno") as HTMLSelectElement;
+   const linguagemElement = document.getElementById("linguagem") as HTMLSelectElement;
+
+   // Validação de campos vazios
+   if (
+    !nomeElement.value ||
+    !sobrenomeElement.value ||
+    !emailElement.value ||
+    !disponibilidadeElement.value ||
+    areaInteresseElement.value === "" ||
+    turnoElement.value === "" ||
+    linguagemElement.value === ""
+  ) {
+    console.error("Um ou mais campos estão vazios.");
+    
+    setValidationError("Por favor, preencha todos os campos obrigatórios.");
+    return; // Interrompe a execução se algum campo estiver vazio
+  }
+  
+    const formData = {
+      nome: nomeElement.value,
+      sobrenome: sobrenomeElement.value,
+      email: emailElement.value,
+      whatsapp: phone,
+      disponibilidade: new Date(disponibilidadeElement.value).toISOString(),
+      area_de_interesse: {
+        nome: areaInteresseElement.value, // Obtendo o valor do dropdown de área de interesse
+        selecionada: areaInteresseElement.value !== "" // Você pode definir uma lógica para saber se foi selecionada
+      },
+      turno: {
+        nome: turnoElement.value, // Obtendo o valor do dropdown de turno
+        selecionado: turnoElement.value !== "" // Lógica semelhante
+      },
+      linguagem: {
+        nome: linguagemElement.value, // Obtendo o valor do dropdown de linguagem
+        selecionada: linguagemElement.value !== "" // Lógica semelhante
+      }
+    };
+
+      try {
+        const response = await axios.post(
+          "https://automatic-invention-rvpxqg4567gh4x5-8000.app.github.dev/usuarios/",
+          formData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+    
+        // Fecha o modal do formulário antes de abrir o de sucesso ou erro
+        handleModalFormClose();
+    
+        if (response.status === 200 || response.status === 201) {
+          setSuccessModalOpen(true); // Abre o modal de sucesso
+        } else {
+          setErrorModalOpen(true); // Abre o modal de erro
+        }
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          // O erro é uma instância de AxiosError
+          console.error("Erro ao enviar dados:", error.response?.data || error.message);
+        } else {
+          // Outro tipo de erro
+          console.error("Erro desconhecido:", error);
+        }
+        
+        handleModalFormClose(); // Fecha o modal em caso de erro
+        setErrorModalOpen(true);
+      }
+    
+    };
+  
   return (
+    <>
+     {isSuccessModalOpen && <ModalSuccess onClose={() => setSuccessModalOpen(false)} />}
+     {isErrorModalOpen && <ModalError onClose={() => setErrorModalOpen(false)} />}
     <div
       className="fixed inset-0 flex justify-center bg-black bg-opacity-90 z-30 px-[1.6rem] xl:p-0 py-[2rem]"
       onClick={handleModalFormClose}
@@ -26,6 +123,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
       <form
         className="w-full flex flex-col xl:w-[68.2rem] text-white py-[2.1rem] px-[2.6rem] xl:py-[4.1rem] xl:px-[4.6rem] xl:justify-between rounded-[2.4rem] bg-[#111114] z-50 overflow-y-auto hide-scrollbar"
         onClick={(e) => e.stopPropagation()}
+        onSubmit={handleSubmit}
       >
         <div className="w-full h-[3.6rem] flex justify-end">
           <button
@@ -54,6 +152,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
             <input
               type="text"
               id="nome"
+              name="nome"
               className="w-full rounded-[0.8rem] mt-[0.4rem] xl:mt-[1.2rem] p-[1.0rem] xl:p-[1.2rem] gap-[1.0rem] border-[0.1rem] border-[#525252] outline-none bg-transparent text-[1.6rem]"
               placeholder="Digite seu nome"
             />
@@ -65,6 +164,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
             <input
               type="text"
               id="sobrenome"
+              name="sobrenome"
               className="w-full rounded-[0.8rem] mt-[0.4rem] xl:mt-[1.2rem] p-[1.0rem] xl:p-[1.2rem] gap-[1.0rem] border-[0.1rem] border-[#525252] outline-none bg-transparent text-[1.6rem]"
               placeholder="Digite seu sobrenome"
             />
@@ -117,6 +217,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
               <input
                 type="email"
                 id="email"
+                name="email"
                 className="w-full py-[1.0rem] xl:py-[1.2rem] outline-none bg-transparent text-[1.6rem] rounded-se-[0.8rem] rounded-ee-[0.8rem]"
                 placeholder="Digite seu email"
               />
@@ -133,7 +234,8 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
             </label>
             <div className="relative">
               <select
-                id="area-de-interesse"
+                id="areaDeInteresse"
+                name="area-de-interesse"
                 defaultValue=""
                 className="w-full rounded-[0.8rem] p-[1.0rem] xl:p-[1.2rem] gap-[1.0rem] border-[0.1rem] border-[#525252] outline-none bg-transparent text-white cursor-pointer appearance-none text-[1.6rem]"
               >
@@ -179,6 +281,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
             <div className="relative">
               <select
                 id="linguagem"
+                name="linguagem"
                 defaultValue=""
                 className="w-full rounded-[0.8rem] p-[1.0rem] xl:p-[1.2rem] gap-[1.0rem] border-[0.1rem] border-[#525252] outline-none bg-transparent text-white cursor-pointer appearance-none text-[1.6rem]"
               >
@@ -219,7 +322,8 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
             </label>
             <input
               type="date"
-              id="data"
+              id="disponibilidade"
+              name="disponibilidade"
               className="w-full
                                     rounded-[0.8rem]
                                     p-[1.0rem]
@@ -248,6 +352,7 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
             <div className="relative">
               <select
                 id="turno"
+                name="turno"
                 defaultValue=""
                 className="w-full rounded-[0.8rem] p-[1.0rem] xl:p-[1.2rem] gap-[1.0rem] border-[0.1rem] border-[#525252] outline-none bg-transparent text-white cursor-pointer appearance-none text-[1.6rem]"
               >
@@ -328,8 +433,42 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
               Enviar
             </p>
           </button>
+        
         </div>
+        <p>
+           {/* Mensagem de erro de validação */}
+      {validationError && (
+        <div style={{ color: 'red', marginTop: '10px' }}>
+          {validationError}
+        </div>
+      )}
+      </p>
       </form>
+   
+       {/* Modal de Sucesso */}
+       {isSuccessModalOpen && (
+        <ModalSuccess 
+          onClose={() => {
+            setSuccessModalOpen(false);
+            handleModalFormClose(); // Fecha o modal do formulário
+          }}
+        />
+      )}
+
+      {/* Modal de Erro */}
+      {isErrorModalOpen && (
+        <ModalError 
+          onClose={() => {
+            setErrorModalOpen(false);
+            handleModalFormClose(); // Fecha o modal do formulário
+          }}
+        />
+      )}
     </div>
+    </>
   );
 }
+function setModalFormOpen(arg0: boolean) {
+  throw new Error("Function not implemented.");
+}
+
