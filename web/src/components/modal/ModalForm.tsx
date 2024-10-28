@@ -22,10 +22,8 @@ interface ModalFormProps {
 
 export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
   const [phone, setPhone] = useState("");
-  const [isSuccessModalOpen, setSuccessModalOpen] = useState(false);
-  const [isErrorModalOpen, setErrorModalOpen] = useState(false);
+  const [modalState, setModalState] = useState<"success" | "error" | null>(null);
   const [validationError, setValidationError] = useState(""); 
-
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -53,7 +51,6 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
     linguagemElement.value === ""
   ) {
     console.error("Um ou mais campos estão vazios.");
-    
     setValidationError("Por favor, preencha todos os campos obrigatórios.");
     return; // Interrompe a execução se algum campo estiver vazio
   }
@@ -78,44 +75,37 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
       }
     };
 
-      try {
-        const response = await axios.post(
-          "https://automatic-invention-rvpxqg4567gh4x5-8000.app.github.dev/usuarios/",
-          formData,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
     
-        // Fecha o modal do formulário antes de abrir o de sucesso ou erro
-        handleModalFormClose();
-    
-        if (response.status === 200 || response.status === 201) {
-          setSuccessModalOpen(true); // Abre o modal de sucesso
-        } else {
-          setErrorModalOpen(true); // Abre o modal de erro
+    try {
+      const response = await axios.post(
+        "https://automatic-invention-rvpxqg4567gh4x5-8000.app.github.dev/usuarios/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          // O erro é uma instância de AxiosError
-          console.error("Erro ao enviar dados:", error.response?.data || error.message);
-        } else {
-          // Outro tipo de erro
-          console.error("Erro desconhecido:", error);
-        }
-        
-        handleModalFormClose(); // Fecha o modal em caso de erro
-        setErrorModalOpen(true);
+      );
+      setModalState("success"); // Abre o modal de sucesso
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setModalState("error");
+        handleModalFormClose 
+        console.error("Erro ao enviar dados:", error.response?.data || error.message);
+      } else {
+        console.error("Erro desconhecido:", error);
       }
-    
-    };
+      setModalState("error"); // Abre o modal de erro
+    }
+  };
+
+  const handleCloseModal = () => {
+    setModalState(null); // Fecha o modal atual
+  };
   
   return (
     <>
-     {isSuccessModalOpen && <ModalSuccess onClose={() => setSuccessModalOpen(false)} />}
-     {isErrorModalOpen && <ModalError onClose={() => setErrorModalOpen(false)} />}
+    {modalState === null && (
     <div
       className="fixed inset-0 flex justify-center bg-black bg-opacity-90 z-30 px-[1.6rem] xl:p-0 py-[2rem]"
       onClick={handleModalFormClose}
@@ -444,27 +434,10 @@ export default function ModalForm({ handleModalFormClose }: ModalFormProps) {
       )}
       </p>
       </form>
-   
-       {/* Modal de Sucesso */}
-       {isSuccessModalOpen && (
-        <ModalSuccess 
-          onClose={() => {
-            setSuccessModalOpen(false);
-            handleModalFormClose(); // Fecha o modal do formulário
-          }}
-        />
-      )}
-
-      {/* Modal de Erro */}
-      {isErrorModalOpen && (
-        <ModalError 
-          onClose={() => {
-            setErrorModalOpen(false);
-            handleModalFormClose(); // Fecha o modal do formulário
-          }}
-        />
-      )}
-    </div>
+      </div>
+    )}
+      {modalState === "success" && <ModalSuccess onClose={handleCloseModal} />}
+      {modalState === "error" && <ModalError onClose={handleCloseModal} />}
     </>
   );
 }
