@@ -17,7 +17,7 @@ const Newsletter = () => {
 
     try {
       const response = await axios.post(
-        "https://automatic-invention-rvpxqg4567gh4x5-8000.app.github.dev/newsletter/",
+        "http://127.0.0.1:8000/newsletter/",
         formData,
         {
           headers: {
@@ -49,10 +49,11 @@ const Newsletter = () => {
               Inscreva-se em nossa Newsletter
             </h2>
             <p className="text-[1.6rem] pt-[1.6rem] md:pt-[2.4rem] text-gray-400">
-              Inscreva-se em nossa newsletter para receber as noticias mais recentes
+              Inscreva-se em nossa newsletter para receber as noticias mais
+              recentes
             </p>
           </div>
-          <form 
+          <form
             onSubmit={handleSubmit}
             className="w-full max-w-[55.3rem] flex flex-col items-center justify-center pt-[1.6rem] gap-[1.6rem]"
           >
@@ -65,7 +66,7 @@ const Newsletter = () => {
               />
               <button
                 type="submit"
-                className="w-full md:w-[118px] h-[48px] bg-primitive-500 text-white hover:bg-white hover:text-black transition-colors duration-300 rounded-[3rem] text-[1.6rem] px-[2.4rem] py-[1.2rem]"
+                className="w-full lg:w-auto h-[48px] bg-primitive-500 text-white hover:bg-white hover:text-black transition-colors duration-300 rounded-[3rem] text-[1.6rem] px-[2.4rem] py-[1.2rem]"
               >
                 Cadastrar
               </button>
@@ -78,9 +79,9 @@ const Newsletter = () => {
               .
             </p>
           </form>
-           {/* Exibe a mensagem de sucesso ou erro */}
-           {message && <p className="text-green-500">{message}</p>}
-           {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+          {/* Exibe a mensagem de sucesso ou erro */}
+          {message && <p className="text-green-500">{message}</p>}
+          {errorMessage && <p className="text-red-500">{errorMessage}</p>}
         </div>
       </div>
     </section>
