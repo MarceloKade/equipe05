@@ -9,7 +9,7 @@ function Container({ children }: Props) {
   return (
     <div
       id="Contato"
-      className="w-full text-white px-[2.0rem] py-[4.8rem] xl:p-20 flex flex-col items-center border-t-1 border-[#27272A] mt-[6.4rem]"
+      className="w-full text-white px-[2.0rem] py-[4.8rem] xl:p-[8rem] flex flex-col items-center border-t-1 border-[#27272A] mt-[6.4rem]"
     >
       {children}
     </div>
@@ -18,7 +18,7 @@ function Container({ children }: Props) {
 
 function SocialForm({ children }: Props) {
   return (
-    <div className="flex flex-col-reverse lg:flex-row items-center m-auto w-full gap-32">
+    <div className="flex flex-col-reverse lg:flex-row items-center m-auto w-full gap-[12.8rem]">
       {children}
     </div>
   );
@@ -29,36 +29,48 @@ function SocialMedia({ children }: Props) {
 }
 
 function Contacts({ children }: Props) {
-  return <div className="hidden lg:flex gap-[107px]">{children}</div>;
+  return (
+    <div className="hidden gap-[6rem] lg:flex gap justify-between">
+      {children}
+    </div>
+  );
 }
 
 function Contact({ children }: Props) {
-  return <div className="flex flex-col gap-4">{children}</div>;
+  return <div className="flex flex-col gap-[1.6rem]">{children}</div>;
 }
 
 function IconName({ children }: Props) {
   return (
-    <div className="flex justify-center items-center gap-3">{children}</div>
+    <div className="flex text-nowrap items-center gap-[1.2rem]">{children}</div>
   );
 }
 
 function Social({ children }: Props) {
-  return <div className="flex flex-col w-full gap-4">{children}</div>;
+  return <div className="flex flex-col w-full gap-[1.6rem]">{children}</div>;
 }
 
 function SocialDetails({ children }: Props) {
-  return <div className="flex gap-3 lg:gap-[74px] mt-6">{children}</div>;
+  return (
+    <div className="flex justify-start gap-[1.2rem] lg:justify-between lg:gap-0 mt-[2.4rem]">
+      {children}
+    </div>
+  );
 }
 
 function SocialAddress({ children }: Props) {
   return (
-    <div className="flex items-center justify-center gap-3">{children}</div>
+    <div className="flex items-center justify-center gap-[1.2rem]">
+      {children}
+    </div>
   );
 }
 
 function FormContainer({ children }: Props) {
   return (
-    <div className="flex flex-col gap-6 items-center w-full">{children}</div>
+    <div className="flex flex-col gap-[2.4rem] items-center w-full">
+      {children}
+    </div>
   );
 }
 
@@ -66,7 +78,7 @@ function Form({ children, onSubmit }: Props) {
   return (
     <form
       onSubmit={onSubmit}
-      className="flex flex-col items-center gap-[3.8rem] w-full"
+      className="flex flex-col items-end gap-[3.8rem] w-full"
     >
       {children}
     </form>
@@ -83,17 +95,19 @@ function InputsContainer({ children }: Props) {
 
 function Divider() {
   return (
-    <div className="hidden lg:flex mt-20 lg:w-[1384px] h-[1px] bg-[#fff]" />
+    <div className="hidden lg:flex mt-[8rem] lg:w-[1384px] h-[1px] bg-[#27272A]" />
   );
 }
 
 function DividerMobile() {
-  return <div className="flex w-full lg:hidden mt-20 h-[1px] bg-[#fff]" />;
+  return (
+    <div className="flex w-full lg:hidden mt-[8rem] h-[1px] bg-[#27272A]" />
+  );
 }
 
 function Copyright({ children }: Props) {
   return (
-    <div className="flex items-start flex-col-reverse  lg:flex-row mt-8">
+    <div className="flex items-start w-full flex-col-reverse  lg:flex-row lg:justify-between mt-[3.2rem]">
       {children}
     </div>
   );
@@ -101,7 +115,7 @@ function Copyright({ children }: Props) {
 
 function Terms({ children }: Props) {
   return (
-    <div className="flex gap-[1.6rem] flex-col lg:flex-row my-8 lg:my-0 lg:ml-[732px]">
+    <div className="flex gap-[1.6rem] flex-col lg:flex-row my-[3.2rem] lg:my-0 lg:ml-[732px]">
       {children}
     </div>
   );
