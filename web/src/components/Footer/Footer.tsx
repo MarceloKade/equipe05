@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import axios from "axios";
 import * as C from "./Containers";
 import * as E from "./Elements";
@@ -29,7 +29,7 @@ export function Footer() {
 
     try {
       const response = await axios.post(
-        "https://automatic-invention-rvpxqg4567gh4x5-8000.app.github.dev/contato/",
+        "http://127.0.0.1:8000/contato/",
         formData,
         {
           headers: {
@@ -123,17 +123,15 @@ export function Footer() {
         </C.FormContainer>
       </C.SocialForm>
       <C.Divider />
-      <div className="w-full flex justify-start">
-        <C.Copyright>
-          <E.CopyrightText>
-            &copy; 2024 Código Certo Coders. Todos os direitos reservados
-          </E.CopyrightText>
-          <C.Terms>
-            <E.Link>Política de Privacidade</E.Link>
-            <E.Link>Termos de Serviço</E.Link>
-          </C.Terms>
-        </C.Copyright>
-      </div>
+      <C.Copyright>
+        <E.CopyrightText>
+          &copy; 2024 Código Certo Coders. Todos os direitos reservados
+        </E.CopyrightText>
+        <C.Terms>
+          <E.Link>Política de Privacidade</E.Link>
+          <E.Link>Termos de Serviço</E.Link>
+        </C.Terms>
+      </C.Copyright>
     </C.Container>
   );
 }
